@@ -14,11 +14,12 @@ export default function MeetingSetup({ setIsSetupComplete } : { setIsSetupComple
         if (isMicCamToggleOn) {
             call?.camera.disable();
             call?.microphone.disable();
+        } else{
+            call?.camera.enable();
+            call?.microphone.enable();
         }
-        call?.camera.enable();
-        call?.microphone.enable();
 
-    }, [isMicCamToggleOn, call?.camera, call?.microphone])
+    }, [isMicCamToggleOn, call])
     
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center gap-3 text-white">
@@ -31,7 +32,7 @@ export default function MeetingSetup({ setIsSetupComplete } : { setIsSetupComple
             </label>
             <DeviceSettings />
         </div>
-        <Button className="cursor-pointer rounded-md bg-green-400 px-4 py-2.5" 
+        <Button className="cursor-pointer rounded bg-green-400 px-4 py-2.5 hover:bg-green-300" 
         onClick={() => {
             call.join();
             setIsSetupComplete(true);
