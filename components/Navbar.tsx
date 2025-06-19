@@ -7,7 +7,7 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 const Navbar = () => {
   return (
-    <nav className='flex justify-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10'>
+    <nav className='flex justify-between fixed z-50 w-full bg-[var(--color-dark-1)] px-6 pt-4 pb-2 lg:px-10'>
       <Link href="/" className='flex items-center gap-1' >
         <Image
           src="/icons/logo.svg"
@@ -26,12 +26,11 @@ const Navbar = () => {
       </SignedIn>
 
       {/* If user is signed out, show Sign In link */}
-
-      <SignedOut>
+      {/* <SignedOut>
         <Link href="/sign-in">
           <Button className='text-white border border-gray-100 rounded cursor-pointer hover:text-black hover:bg-gray-100'>Sign In</Button>
         </Link>
-      </SignedOut>
+      </SignedOut> */}
       
         {/* MOBILE NAV */}
 
