@@ -10,10 +10,10 @@ import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
 import { useState } from "react";
 
 
-export default function Meeting({ params }: { params: { id: string } }) {
+export default function Meeting({params:{id}}:{params:{id:"string"}}) {
     const { isLoaded } = useUser(); 
     const [isSetupComplete, setIsSetupComplete] = useState(false);
-    const { call, isCallLoading } = useGetCallById(params?.id);
+    const { call, isCallLoading } = useGetCallById(id);
 
     if (!isLoaded || isCallLoading) return <Loader />;
 
