@@ -2,8 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import MobileNav from './MobileNav'
-import { Button } from './ui/button'
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { SignedIn,  UserButton } from '@clerk/nextjs'
 
 const Navbar = () => {
   return (
@@ -25,16 +24,9 @@ const Navbar = () => {
         <UserButton />
       </SignedIn>
 
-      {/* If user is signed out, show Sign In link */}
-      {/* <SignedOut>
-        <Link href="/sign-in">
-          <Button className='text-white border border-gray-100 rounded cursor-pointer hover:text-black hover:bg-gray-100'>Sign In</Button>
-        </Link>
-      </SignedOut> */}
-      
-        {/* MOBILE NAV */}
+      {/* MOBILE NAV */}
 
-        <MobileNav />
+      <MobileNav />
       </div>
     </nav>
   )

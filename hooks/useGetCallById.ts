@@ -22,5 +22,4 @@ export const useGetCallById = (id: string | string[]) => {
     }, [client, id]);
 
     return { call, isCallLoading };
-
 }
