@@ -1,4 +1,3 @@
-// page.tsx
 'use client'
 
 import Loader from "@/components/Loader";
@@ -9,8 +8,12 @@ import { useUser } from "@clerk/nextjs";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
 import { useState } from "react";
 
+interface MeetingProps {
+  params: { id: string };
+}
 
-export default function Meeting({params:{id}}:{params:{id:"string"}}) {
+export default async function Meeting({ params } : MeetingProps) {
+    const { id } = await params;
     const { isLoaded } = useUser(); 
     const [isSetupComplete, setIsSetupComplete] = useState(false);
     const { call, isCallLoading } = useGetCallById(id);
