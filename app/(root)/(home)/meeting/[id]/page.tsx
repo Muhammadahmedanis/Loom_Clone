@@ -6,14 +6,12 @@ import MeetingSetup from "@/components/MeetingSetup";
 import { useGetCallById } from "@/hooks/useGetCallById";
 import { useUser } from "@clerk/nextjs";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 
-interface MeetingProps {
-  params: { id: string };
-}
 
-export default async function Meeting({ params } : MeetingProps) {
-    const { id } = await params;
+export default function Meeting() {
+    const id = useParams().id as string;
     const { isLoaded } = useUser(); 
     const [isSetupComplete, setIsSetupComplete] = useState(false);
     const { call, isCallLoading } = useGetCallById(id);
