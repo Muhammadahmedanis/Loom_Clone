@@ -46,6 +46,7 @@ export default function CallList({ type } : { type: 'ended' | 'upcoming' | 'reco
                 const recordings = callData?.filter((call) => call.recordings.length > 0)?.flatMap(call => call?.recordings);
                 setRecordings(recordings);   
             } catch (error) {
+                console.log(error);
                 toast.error("Try again later");
             }
         }
@@ -68,10 +69,6 @@ export default function CallList({ type } : { type: 'ended' | 'upcoming' | 'reco
         const title = isRecording 
             ? (meeting as CallRecording)?.filename?.substring(0, 20) || "No description"
             : (meeting as Call)?.state?.custom?.description?.substring(0, 20) || "Personal Meeting";
-
-        const date = isRecording
-            ? new Date((meeting as CallRecording)?.start_time).toLocaleString()
-            : (meeting as Call)?.state?.startsAt?.toLocaleString();
 
         const handleClick = isRecording
             ? () => router.push(`${(meeting as CallRecording)?.url}`)
